@@ -8,6 +8,14 @@ class GymsController < ApplicationController
         end
     end
 
+    def destroy
+        gym=find_gym
+        if gym 
+            gym.destroy
+            head: no_content
+        else 
+            render json {error: "gym not found"}, status: :not_found
+
 
     private
     def find_gym
