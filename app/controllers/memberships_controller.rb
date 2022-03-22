@@ -5,6 +5,7 @@ class MembershipsController < ApplicationController
     rescue ActiveRecord::RecordInvalid => invalid
         render json: {errors: invalid.record.errors}, status: :unprocessable_entity
     end
+    
     def index
         render json: Membership.all 
     end
